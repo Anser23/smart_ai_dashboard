@@ -1,0 +1,121 @@
+/* assets/style.css
+   Dark, modern theme with subtle 3D buttons.
+   Adjust values if you want stronger/lighter effects.
+*/
+
+:root{
+  --bg: #0b1220;
+  --panel: #0f172a;
+  --border: #1f2a3f;
+  --primary: #2563EB;
+  --accent: #10B981;
+  --heading: #E2E8F0;
+  --muted: #93A3B8;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg), #071020 140%);
+  color: var(--muted);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header/hero */
+.header-hero {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.header-hero h2 { margin:0; color:var(--heading); font-size:1.25rem; }
+.header-hero p { margin:3px 0 0 0; color:var(--muted); font-size:0.9rem; }
+
+/* Panels / cards */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 30px rgba(3,7,18,0.6);
+}
+
+/* KPI small cards */
+.kpi {
+  display:inline-block;
+  min-width:110px;
+  margin:6px;
+  padding:10px 12px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.02);
+  color:var(--muted);
+}
+.kpi b { color: var(--heading); display:block; margin-bottom:6px; }
+.kpi div { font-weight:700; color:var(--heading); font-size:1.05rem; }
+
+/* Buttons: subtle 3D */
+.gr-button, button {
+  background: linear-gradient(180deg, var(--primary), #1f4ed8);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 18px rgba(2,6,23,0.6), /* soft drop */
+    0 2px 6px rgba(0,0,0,0.45),   /* small */
+    inset 0 -2px 0 rgba(255,255,255,0.03); /* sheen */
+  transform: translateY(0);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+.gr-button:hover, button:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 40px rgba(2,6,23,0.7),
+    0 6px 14px rgba(0,0,0,0.5),
+    inset 0 -2px 0 rgba(255,255,255,0.04);
+}
+.gr-button:active, button:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 20px rgba(2,6,23,0.5),
+    0 2px 6px rgba(0,0,0,0.45);
+}
+
+/* Secondary button */
+.btn-secondary {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Inputs & dropdowns */
+.gr-input, .gr-dropdown, .gr-file {
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--muted);
+}
+
+/* Plotly dark adjustments */
+.plotly-graph-div {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .kpi { min-width: 90px; padding: 8px; font-size: 0.9rem; }
+  .header-hero h2 { font-size: 1.05rem; }
+}
+
+/* Small accent animation underline for hero */
+.accent-underline {
+  height: 3px;
+  width: 140px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: transform 0.4s ease;
+  margin-top:8px;
+}
+.header-hero:hover .accent-underline { transform: translateX(8px); }
